@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* el ancho de los elementos incluirá el contendo + padding + borde */
+} 
+
+html {
+    font-size: 62.5%;
+}
+
+header {
+    position: relative; /* Para poder posicionar el menú respecto a la imagen que está en el header */
+}
+header img{
+    width:100%; /*la imagen ocupará todo el ancho de su contenedor.  */
+}
+header nav ul {
+    position: absolute; /* posicionaremos el menú de manera absoluta respecto al header que 
+    contiene la imagen */
+    top: 20%;    
+    width: 100%; /* recuerda que un elemento posicionado de manera absoluta, ocupa solo el ancho
+    de su contenido. Para centrarlo debidamente en pantalla, necesitaremos un ancho 100% */
+    display: flex; /* lo necesitamos para centrar el menú  */
+    justify-content: center;    
+    background-color: #000000af;
+    border-top: 2px solid #c1bebe;
+    border-bottom: 2px solid #c1bebe;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 1rem 1.5rem;
+}
+
+nav ul li a {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+}
+
+nav ul li a:hover { /* al pasar el ratón sobre elementos del menú cambian de color y tamaño*/
+    font-size: 2.7rem;
+    color: #dfdb06;
+}
+
+#destacados {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+#destacados h1 {
+    font-size: 2.9rem;
+}
+
+
+.libro {
+    border: 1px solid #999999;
+    border-radius: 1rem;
+    width: 29%;
+    display: inline-block; 
+    /* 
+    inline-block es la suma de 
+         - 'inline': para poner los elementos en horizontal
+         - 'block': para que podamos establecer propiedades como el padding 
+    */
+    margin: 1rem;
+    padding: 2rem 4rem;
+}
+
+.libro img {
+    height: 200px;
+    display: block;
+    /* recuerda que una imagen es un elemento de línea. Lo ponemos de bloque para poder 
+    centrarlo dentro del div en el que se encuentra */
+    margin: 0 auto;
+}
+
+.libro h2 {
+    font-size: 2.5rem;
+    padding-top: 2rem;
+}
+.libro .autor {
+    font-size: 1.8rem;
+    padding-top: 1rem;
+}
+
+.libro .precio {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: #750505;
+}
+
+.libro button {
+    padding: 1rem;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 4rem;
+    background-color: #000000;
+    text-align: center;
+    padding: 2.5rem;
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+
+/* 
+Lo que viene a continuación son media-queries. Es la manera de aplicar reglas CSS
+distintas en función de propiedades del dispositivo, como el ancho de la pantalla 
+*/
+
+/* Para dispositivos más anchos -más de 900px- mostraremos varios libros en una misma línea */
+/* Para dispositivos medianos -hasta 900px- mostraremos dos libros por línea*/
+@media (max-width: 900px) {
+    .libro {
+        width: 35%;
+        display: inline-block;
+        margin: 1rem 7%;
+    }
+}
+
+/* Para dispositivos pequeños-hasta 600px- mostraremos solo un libro por línea */
+@media (max-width: 600px) {
+    .libro {
+        display: block;
+        width: 80%;
+        margin: 2rem auto;
+    }
+    
+}
